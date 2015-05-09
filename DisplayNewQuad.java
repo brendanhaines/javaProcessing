@@ -23,28 +23,47 @@ class DisplayNewQuad extends Display3D {
      */
     public void drawObject() {
         int s = 1;
-        fill( 255 );
+        noStroke();
+        lights();
 
+        fill( 255 );
         rotateZ( (float)( Math.PI/4 ) );
         translate( 80, 0, 0 );
         box( 100, 10, 10 );
+        translate( 40, 0, -20 );
+        fill( 255, 255, 0 );
+        sphere( 15 );
+        translate( -40, 0, 20 );
         translate( -80, 0, 0 );
 
+        fill( 255 );
         rotateZ( (float)( Math.PI/2 ) );
         translate( 80, 0, 0 );
         box( 100, 10, 10 );
+        translate( 40, 0, -20 );
+        fill( 255, 255, 0 );
+        sphere( 15 );
+        translate( -40, 0, 20 );
         translate( -80, 0, 0 );
 
         fill( 255, 0, 0 );
-
         rotateZ( (float)( Math.PI/2 ) );
         translate( 80, 0, 0 );
         box( 100, 10, 10 );
+        translate( 40, 0, -20 );
+        fill( 255, 255, 0 );
+        sphere( 15 );
+        translate( -40, 0, 20 );
         translate( -80, 0, 0 );
 
+        fill( 255, 0, 0 );
         rotateZ( (float)( Math.PI/2 ) );
         translate( 80, 0, 0 );
         box( 100, 10, 10 );
+        translate( 40, 0, -20 );
+        fill( 255, 255, 0 );
+        sphere( 15 );
+        translate( -40, 0, 20 );
         translate( -80, 0, 0 );
 
         rotateZ( (float)( Math.PI/4 ) );
