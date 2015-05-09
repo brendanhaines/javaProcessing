@@ -28,7 +28,8 @@ class Tester3D {
         while( area3d.defaultSize && !area3d.finished )
             try { Thread.sleep( 5 ); } catch( Exception e ) {}
 
-        slider = new JSlider( JSlider.VERTICAL, 0, 157, 79 );
+        slider = new JSlider( JSlider.VERTICAL, 0, 157, 52 );   // initial position pi/6
+        Tester3D.area3d.camAngle = (float)( 157 - Tester3D.slider.getValue() ) / 100;   // set initial camera angle
         slider.addChangeListener( new ChangeListener() {
             public void stateChanged( ChangeEvent evt ) {
                 Tester3D.area3d.camAngle = (float)( 157 - Tester3D.slider.getValue() ) / 100;
