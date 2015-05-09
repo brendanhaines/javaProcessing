@@ -60,10 +60,14 @@ class Display3D extends PApplet {
     ///// Draw methods /////
     ////////////////////////
 
+    public void drawBackground() {
+
+    }
+
     public void drawObject() {
         noFill();
         stroke( 255 );
-        box( xDim / 5, xDim / 3, xDim / 20 );
+        box( width / 5, width / 3, width / 20 );
     }
 
     ///////////////////////////
@@ -74,7 +78,7 @@ class Display3D extends PApplet {
         size( xDim, yDim, P3D );
         background( BACKGROUND_COLOR );
 
-        camera( (float)0.0, (float)( -xDim * Math.sin( camAngle )), (float)( xDim * Math.cos( camAngle ) ),
+        camera( (float)0.0, (float)( -width * Math.sin( camAngle )), (float)( width * Math.cos( camAngle ) ),
                 (float)0.0, (float)0.0, (float)0.0,
                 (float)0.0, (float)1.0, (float)0.0 );
     }
@@ -82,10 +86,11 @@ class Display3D extends PApplet {
     public void draw() {
         background( BACKGROUND_COLOR );
 
+        drawBackground();
         // draw image
         rotateZ( yaw );
         rotateX( pitch );
-        rotateY( roll );
+        rotateY( -roll );
         drawObject();
 
         if( keyPressed ) {
@@ -105,7 +110,7 @@ class Display3D extends PApplet {
 
         // set camera
 
-        camera( (float)0.0, (float)( xDim * Math.sin( camAngle )), (float)( xDim * Math.cos( camAngle ) ), // camera position
+        camera( (float)0.0, (float)( width * Math.sin( camAngle )), (float)( width * Math.cos( camAngle ) ), // camera position
                 (float)0.0, (float)0.0, (float)0.0,     // center
                 (float)0.0, (float)1.0, (float)0.0 );   // up axis
     }

@@ -8,6 +8,16 @@ class DisplayQuad extends Display3D {
         super( bkgnd );
     }
 
+    public void drawBackground() {
+        // sphere
+        pushMatrix();
+        rotateX((float)(Math.PI/2));
+        noFill();
+        stroke(100, 127 );
+        sphere( width );
+        popMatrix();
+    }
+
     /**
      *
      */
@@ -103,13 +113,5 @@ class DisplayQuad extends Display3D {
         vertex( s*100,  -s*75,  0 );
         vertex( s*25,   0,      0 );
         endShape();
-
-        // sphere
-        pushMatrix();
-        rotateX((float)(Math.PI/2));
-        noFill();
-        stroke(100);
-        sphere(280);
-        popMatrix();
     }
 }
