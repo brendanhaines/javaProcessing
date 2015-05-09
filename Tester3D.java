@@ -75,6 +75,7 @@ class Tester3D {
         }
         catch(Exception e) {
             System.out.print("Whoops! It didn't work!\n");
+            System.exit(1);
         }
     }
 
