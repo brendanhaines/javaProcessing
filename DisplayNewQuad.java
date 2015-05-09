@@ -22,7 +22,6 @@ class DisplayNewQuad extends Display3D {
      *
      */
     public void drawObject() {
-        int s = 1;
         noStroke();
         lights();
 
