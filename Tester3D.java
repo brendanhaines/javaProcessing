@@ -58,19 +58,16 @@ class Tester3D {
             while( !in.ready() ) {}
 
             String inString;
+            while( !in2.hasNext() ) {}
+            while( !updateYPR( in2 ) ) {}
+
+            yawAdjust = rawYaw;
+
             while( true ) {
                 //while( !in.ready() ) {}
                 //inString = in.readLine();
                 if( in2.hasNext() ) {
-                    if( in2.next().equals( "ypr" ) ) {
-                        while( !in2.hasNext() ) {}
-                        rawYaw = (float)( 0.01745329251 * in2.nextFloat() );
-                        area3d.yaw = (float)( rawYaw - yawAdjust );
-                        while( !in2.hasNext() ) {}
-                        area3d.pitch = (float)( 0.01745329251 * in2.nextFloat() );
-                        while( !in2.hasNext() ) {}
-                        area3d.roll = (float)( 0.01745329251 * in2.nextFloat() );
-                    }
+                    updateYPR( in2 );
                 }
             }
             //System.out.print("'\n");
@@ -79,5 +76,22 @@ class Tester3D {
         catch(Exception e) {
             System.out.print("Whoops! It didn't work!\n");
         }
+    }
+
+    /**
+     * @return true on successful update, false if scan.next() is not "ypr"
+     */
+    public static boolean updateYPR( Scanner scan) {
+        if( scan.next().equals( "ypr" ) ) {
+            while( !scan.hasNext() ) {}
+            rawYaw = (float)( 0.01745329251 * scan.nextFloat() );
+            area3d.yaw = (float)( rawYaw - yawAdjust );
+            while( !scan.hasNext() ) {}
+            area3d.pitch = (float)( 0.01745329251 * scan.nextFloat() );
+            while( !scan.hasNext() ) {}
+            area3d.roll = (float)( 0.01745329251 * scan.nextFloat() );
+            return true;
+        }
+        return false;
     }
 }
