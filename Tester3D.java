@@ -22,7 +22,7 @@ class Tester3D {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout( new BorderLayout() );
 
-        area3d = new DisplayQuad( 80 );
+        area3d = new DisplayNewQuad( 80 );
         frame.add( area3d, BorderLayout.CENTER );
         area3d.init();
         while( area3d.defaultSize && !area3d.finished )
